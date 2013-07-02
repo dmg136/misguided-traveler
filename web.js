@@ -18,6 +18,11 @@ app.get('/count', function(request, response) {
   response.send(arr.join(" "));
 });
 
+app.get('/tamil', function(request, response) {
+  response.write("Hello!");
+  response.end();
+});
+
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
   console.log("Listening on " + port);
