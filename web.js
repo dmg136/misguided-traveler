@@ -11,9 +11,11 @@ var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
   response.send('Welcome to my humble abode');
+});
+
+app.get('/count', function(request, response) {
   var arr = countTo10();
   response.send(arr.join(" "));
-  response.end();
 });
 
 var port = process.env.PORT || 5000;
