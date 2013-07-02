@@ -12,7 +12,8 @@ var app = express.createServer(express.logger());
 app.get('/', function(request, response) {
   response.send('Welcome to my humble abode');
   var arr = countTo10();
-  response.end(arr.join(" "));
+  response.send(arr.join(" "));
+  response.end();
 });
 
 var port = process.env.PORT || 5000;
