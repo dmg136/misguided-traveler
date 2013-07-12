@@ -10,7 +10,7 @@ var express = require('express');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('Welcome to my humble abode');
+  response.send('Welcome to my humble abode, suburls: count, tamil');
 });
 
 app.get('/count', function(request, response) {
