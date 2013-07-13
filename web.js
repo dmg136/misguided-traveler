@@ -9,8 +9,16 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 
+var buf;
+
 app.get('/', function(request, response) {
-  response.send('Welcome to my humble abode, suburls: count, tamil');
+  fs.readFile('index.html', function(err, data) {
+    if (err) throw err;
+    buf = new Buffer(256);
+    len = buf.write(data, 0);
+    console.log(len);
+  });
+  //response.send('Welcome to my humble abode, suburls: count, tamil');
 });
 
 app.get('/count', function(request, response) {
