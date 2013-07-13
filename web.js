@@ -9,16 +9,13 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 
-var buf;
+var contents;
 var fs = require('fs');
 
 app.get('/', function(request, response) {
-  fs.readFile('index.html', function(err, data) {
-    if (err) throw err;
-    buf = new Buffer(256);
-    len = buf.write(data, 0);
-    console.log(len);
-  });
+  fs.readFileSync('index.html');
+  contents = fs.toString();
+  console.log(contents);
   //response.send('Welcome to my humble abode, suburls: count, tamil');
 });
 
