@@ -7,16 +7,17 @@ var countTo10 = function() {
 
 var express = require('express');
 
+var buf;
 var app = express.createServer(express.logger());
 
 var contents;
 var fs = require('fs');
 
 app.get('/', function(request, response) {
-  fs.readFileSync('index.html');
-  contents = fs.toString();
-  console.log(contents);
-  //response.send('Welcome to my humble abode, suburls: count, tamil');
+  buf = fs.readFileSync('index.html');
+  contents = buf.toString();
+  //console.log(contents);
+  response.send(contents);
 });
 
 app.get('/count', function(request, response) {
