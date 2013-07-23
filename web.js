@@ -16,7 +16,6 @@ var fs = require('fs');
 app.get('/', function(request, response) {
   buf = fs.readFileSync('index.html');
   contents = buf.toString();
-  //console.log(contents);
   response.send(contents);
 });
 
@@ -26,8 +25,9 @@ app.get('/count', function(request, response) {
 });
 
 app.get('/tamil', function(request, response) {
-  response.write("Hello!");
-  response.end();
+  buf = fs.readFileSync('tamil.html');
+  contents = buf.toString();
+  response.send(contents);
 });
 
 var port = process.env.PORT || 5000;
